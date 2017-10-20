@@ -22,7 +22,7 @@ class PageController extends Controller
         // }
         
         return redirect()->route('user_news')->cookie(
-            'user_id', (int)(request()->get('viewer_id')), $minutes
+            'user_id', (int)(request()->get('viewer_id')), 3600
         );
         
         
