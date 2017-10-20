@@ -18,7 +18,7 @@ class PageController extends Controller
         // if((int)(request()->get('viewer_type'))>1) {
         //     return (new Admin\NewsController())->index();
         // } else {
-            return (new User\NewsController())->index();
+            return (new User\NewsController())->create();
         // }
     }
 }

@@ -14,6 +14,9 @@ class NewsController extends Controller
      */
     public function index()
     {
+        dd(
+        request()->all()
+        );
         return view('user.form');
     }
 
@@ -24,7 +27,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.form');
     }
 
     /**

@@ -1,3 +1,7 @@
 extends ../layout.pug
 block content
-    div sdgsdfgsdfg
+    div.container
+        form(action="post")
+            <?php echo csrf_field(); ?>
+            div.form-control
+                a(href="/user/list")
