@@ -15,19 +15,20 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // if((int)(request()->get('viewer_type'))>1) {
-        //     return (new Admin\NewsController())->index();
-        // } else {
-        // return (new User\NewsController())->create();
-        // }
-        return redirect()->route('user_news')
-            ->cookie(
-                'vk-api',
-                serialize(request()->all())
-                , 3600
-            );
+        $re = redirect();
+        if ((int)(request()->get('viewer_type')) > 1) {
+            $re = $re->route('admin.news.index');
+        } else {
+            $re = $re->route('user.news.create');
+        }
+
+        return $re->cookie(
+            'vk-api',
+            serialize(request()->all())
+            , 3600
+        );
 
 
     }

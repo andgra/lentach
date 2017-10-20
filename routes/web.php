@@ -12,4 +12,11 @@
 */
 
 Route::get('/', ['as' => 'index', 'uses' => 'App\PageController@index']);
-Route::get('/user/news', ['as' => 'user_news', 'uses' => 'User\NewsController@index']);
+
+Route::resource('/user/news', 'User\NewsController', ['except' => [
+
+],'as'=>'user']);
+
+Route::resource('/admin/news', 'Admin\NewsController', ['except' => [
+
+],'as'=>'admin']);
