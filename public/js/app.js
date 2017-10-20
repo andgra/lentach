@@ -765,7 +765,7 @@ __webpack_require__(9);
 window.name = 'fXD';
 window.onload = function () {
     VK.init(function () {
-        VK.callMethod("showSettingsBox", 8214);
+        VK.callMethod("showInstallBox");
     }, function () {
         // API initialization failed
         // Can reload page here
