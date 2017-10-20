@@ -18,7 +18,13 @@ class PageController extends Controller
         // if((int)(request()->get('viewer_type'))>1) {
         //     return (new Admin\NewsController())->index();
         // } else {
-            return (new User\NewsController())->create();
+            // return (new User\NewsController())->create();
         // }
+        
+        return redirect()->route('user_news')->cookie(
+            'user_id', (int)(request()->get('viewer_id')), $minutes
+        );
+        
+        
     }
 }

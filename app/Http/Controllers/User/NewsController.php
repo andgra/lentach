@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index()
     {
         dd(
-        request()->all()
+            Cookie::get('user_id')
         );
         return view('user.form');
     }
