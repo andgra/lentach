@@ -15,7 +15,6 @@ class NewsController extends Controller
      */
     public function index()
     {
-        dd(123);
         dd(
             Cookie::get('user_id')
         );
