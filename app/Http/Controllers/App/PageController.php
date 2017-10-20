@@ -7,9 +7,13 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    public function index() 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        dd(request());
-        return view('index');
+        dd(request()->all());
     }
 }
