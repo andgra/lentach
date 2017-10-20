@@ -11,7 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    echo 'fsdfsdfgsdfgsdg';
-    //return view('welcome');
-});
+Route::get('/', ['as' => 'index', 'uses' => 'PageController@index']);
