@@ -12,4 +12,4 @@
 */
 
 Route::get('/', ['as' => 'index', 'uses' => 'App\PageController@index']);
-Route::get('/user/news', ['as' => 'index', 'uses' => 'User\NewsController@index']);
+Route::get('/user/news', ['as' => 'user_news', 'uses' => 'User\NewsController@index']);
