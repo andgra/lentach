@@ -4,6 +4,8 @@ namespace App\Http\Controllers\App;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin as Admin;
+use App\Http\Controllers\User as User;
 
 class PageController extends Controller
 {
@@ -14,6 +16,9 @@ class PageController extends Controller
      */
     public function index()
     {
+        if((int)(request()->get('viewer_type'))>1) {
+            return (new Admin\NewsController())->index();
+        }
         dd(request()->all());
     }
 }
