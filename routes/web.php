@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', ['as' => 'index', 'uses' => 'PageController@index']);
+Route::get('/', ['as' => 'index', 'uses' => 'App\PageController@index']);
