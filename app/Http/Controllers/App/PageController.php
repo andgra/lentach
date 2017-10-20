@@ -13,7 +13,7 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // if((int)(request()->get('viewer_type'))>1) {
         //     return (new Admin\NewsController())->index();
@@ -23,6 +23,10 @@ class PageController extends Controller
         
         return redirect()->route('user_news')->cookie(
             'user_id', (int)(request()->get('viewer_id')), 3600
+        )->cookie(
+            'api', 
+            $request->all()
+            , 3600
         );
         
         
