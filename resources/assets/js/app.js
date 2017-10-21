@@ -23,11 +23,17 @@ $.ajaxSetup({
 //    }, '5.68');
 //}
 $('input[name="is_link"]').on('change',function(e) {
+    var $link=$('#content_link');
+    var $full=$('#content');
     if(this.value==1) {
-        $('#content').css('display','none');
-        $('#content_link').css('display','');
+        $full.css('display','none');
+        //$full.attr('name','');
+        $link.css('display','');
+        //$link.attr('name','content');
     } else {
-        $('#content').css('display','');
-        $('#content_link').css('display','none');
+        //$full.attr('name','content');
+        $full.css('display','');
+        //$link.attr('name','');
+        $link.css('display','none');
     }
 });
