@@ -28,7 +28,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('user.form',['action'=>route('user.news.store')]);
+        $categories=\App\Category::all();
+        return view('user.form',['action'=>route('user.news.store'),'categories'=>$categories]);
     }
 
     /**

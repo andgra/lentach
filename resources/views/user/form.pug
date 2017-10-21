@@ -9,10 +9,8 @@ block content
             div.form-group
                 label(for="category_id") Категория
                 select(name="category_id",id="category_id",class="form-control")
-                    option(value="1") Политика
-                    option(value="2") Экономика
-                    option(value="3") Технологии
-                    option(value="4") Другое
+                    each val in categories
+                        option(value="#{val.id}")= val.title
             div.radio
                 label.radio-inline
                     input(type="radio",name="is_link",value="1",id="is_link_1",checked="checked")
