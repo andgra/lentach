@@ -13,19 +13,16 @@ block content
                     option(value="2") Экономика
                     option(value="3") Технологии
                     option(value="4") Другое
-            div
-                div.radio
-                    label
-                        input(type="radio",name="is_link",value="1",id="is_link_1",checked="checked")
-                        != 'Ссылка на источник'
+            div.radio
+                label.radio-inline
+                    input(type="radio",name="is_link",value="1",id="is_link_1",checked="checked")
+                    != 'Ссылка на источник'
+                label.radio-inline
+                    input(type="radio",name="is_link",value="0",id="is_link_0")
+                    != 'Ввод вручную'
                 div
             div.form-group
-                div.radio
-                    label
-                        input(type="radio",name="is_link",value="0",id="is_link_0")
-                        != 'Ввод вручную'
-                div
-                    input(name="content_link",id="content_link",class="form-control",placeholder="вставьте ссылку")
-                    input(name="content",id="content",class="form-control",placeholder="содержание новости",style="display: none")
+                input(name="content_link",id="content_link",class="form-control",placeholder="вставьте ссылку")
+                input(name="content",id="content",class="form-control",placeholder="содержание новости",style="display: none")
             div.form-group
                 button(type="submit",class="btn btn-primary btn-lg") Отправить
