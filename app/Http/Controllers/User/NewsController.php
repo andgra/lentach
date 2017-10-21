@@ -28,7 +28,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('user.form');
+        return view('user.form',['action'=>route('user.news.store')]);
     }
 
     /**
@@ -39,7 +39,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->post());
     }
 
     /**

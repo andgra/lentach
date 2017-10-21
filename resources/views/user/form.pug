@@ -1,7 +1,7 @@
 extends ../layout.pug
 block content
     div
-        form(action="post")
+        form(method="post",action="#{action}")
             <?php echo csrf_field(); ?>
             div
                 label(for="title") Заголовок (необязательно)
