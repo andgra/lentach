@@ -23,7 +23,7 @@ class CreateNews extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
             $table->longtext('content');
             $table->boolean('is_link');
-
+            $table->timestamps();
         });
     }
 
