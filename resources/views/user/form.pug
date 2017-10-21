@@ -16,12 +16,14 @@ block content
             div
                 div.radio
                     label
-                        input(type="radio",name="is_link",value="1") Ссылка на источник
+                        input(type="radio",name="is_link",value="1")
+                        != 'Ссылка на источник'
                 div
                     input(name="content_link",id="content_link",class="form-control",placeholder="вставьте ссылку")
             div
                 div.radio
                     label
-                        input(type="radio",name="is_link",value="1") Ввод вручную
+                        input(type="radio",name="is_link",value="1")
+                        != 'Ввод вручную'
                 div
                     input(name="content",id="content",class="form-control",placeholder="содержание новости")
