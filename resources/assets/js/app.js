@@ -6,14 +6,28 @@
  */
 
 require('./bootstrap');
-
-window.name = 'fXD';
-window.onload = ()=>
-{
-    VK.init(function () {
-        VK.callMethod("showInstallBox");
-    }, function () {
-        // API initialization failed
-        // Can reload page here
-    }, '5.68');
-}
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+//
+//window.name = 'fXD';
+//window.onload = ()=>
+//{
+//    VK.init(function () {
+//        VK.callMethod("showInstallBox");
+//    }, function () {
+//        // API initialization failed
+//        // Can reload page here
+//    }, '5.68');
+//}
+$('input[name="is_link"]').on('change',function(e) {
+    if(this.value==1) {
+        $('#content').css('display','none');
+        $('#content_link').css('display','');
+    } else {
+        $('#content').css('display','');
+        $('#content_link').css('display','none');
+    }
+});
