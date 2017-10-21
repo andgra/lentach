@@ -1,7 +1,27 @@
 extends ../layout.pug
 block content
-    div.container
+    div
         form(action="post")
             <?php echo csrf_field(); ?>
-            div.form-control
-                a(href="/user/news") test
+            div
+                label(for="title") Заголовок (необязательно)
+                input(type="text",class="form-control",name="title",id="title")
+            div
+                label(for="category_id") Категория
+                select(name="category_id",id="category_id",class="form-control")
+                    option(value="1") Политика
+                    option(value="2") Экономика
+                    option(value="3") Технологии
+                    option(value="4") Другое
+            div
+                div.radio
+                    label
+                        input(type="radio",name="is_link",value="1") Ссылка на источник
+                div
+                    input(name="content_link",id="content_link",class="form-control",placeholder="вставьте ссылку")
+            div
+                div.radio
+                    label
+                        input(type="radio",name="is_link",value="1") Ввод вручную
+                div
+                    input(name="content",id="content",class="form-control",placeholder="содержание новости")
