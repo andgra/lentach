@@ -27,7 +27,6 @@ class CreateCategories extends Migration
      */
     public function down()
     {
-        Schema::drop('news');
         Schema::drop('categories');
     }
 }
