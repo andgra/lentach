@@ -746,13 +746,13 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(35);
+__webpack_require__(35);
+module.exports = __webpack_require__(36);
 
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
-
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -761,11 +761,27 @@ module.exports = __webpack_require__(35);
  */
 
 __webpack_require__(9);
+
+function escapeHtml(text) {
+    var map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+
+    return text.replace(/[&<>"']/g, function (m) {
+        return map[m];
+    });
+}
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
 //
 //window.name = 'fXD';
 //window.onload = ()=>
@@ -777,15 +793,37 @@ $.ajaxSetup({
 //        // Can reload page here
 //    }, '5.68');
 //}
-$('input[name="is_link"]').on('change', function (e) {
-    if (this.value == 1) {
-        $('#content').css('display', 'none');
-        $('#content_link').css('display', '');
-    } else {
-        $('#content').css('display', '');
-        $('#content_link').css('display', 'none');
+
+
+$(function (CKEDITOR) {
+    if ($('#user_create_news').length) {
+        var toggle_source = function toggle_source(el) {
+            var $block_full = $('#content');
+            //var $full = $('#content textarea[name="content_full"]');
+            var $block_link = $('#content_link_container');
+            if (el.value == 1) {
+                $block_full.css('display', 'none');
+                //$full.removeAttr('required');
+                $block_link.css('display', '');
+            } else {
+                $block_full.css('display', '');
+                ///$full.attr('required', 'required');
+                $block_link.css('display', 'none');
+            }
+        };
+
+        $('input[name="is_link"]').on('change', function (e) {
+            toggle_source(this);
+        });
+        $radios = $('input[name="is_link"]');
+        for (var i = 0; i < $radios.length; i++) {
+            if ($radios[i].checked) toggle_source($radios[i]);
+        }
+
+
+        CKEDITOR.replace('content_full');
     }
-});
+}(CKEDITOR));
 
 /***/ }),
 /* 9 */
@@ -31701,6 +31739,12 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 35 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 36 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

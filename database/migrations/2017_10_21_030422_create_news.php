@@ -17,12 +17,12 @@ class CreateNews extends Migration
         {
             $table->increments('id');
             $table->string('title');
-            $table->integer('author_id');
-            $table->string('author_name');
-            $table->addColumn('integer', 'category_id', ['unsigned' => true, 'length' => 10])->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
+            $table->integer('user_id');
+            $table->string('user_name')->nullable();
             $table->longtext('content');
-            $table->boolean('is_link');
+            $table->longtext('content_link')->nullable();
+            $table->boolean('is_link')->default(false);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

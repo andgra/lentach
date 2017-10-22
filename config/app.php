@@ -176,7 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        // добавляем CKeditor
+        Unisharp\Ckeditor\ServiceProvider::class,
+        App\Providers\OpenGraphParserProvider::class
     ],
 
     /*

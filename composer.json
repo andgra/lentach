@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "bkwld/laravel-pug": "^1.5",
+        "ArnsboMedia/opengraph_parser": "^0.0.9",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "unisharp/laravel-ckeditor": "^4.6",
+        "yandex-money/yandex-money-sdk-php": "^3.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

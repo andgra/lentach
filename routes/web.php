@@ -11,13 +11,28 @@
 |
 */
 
+Route::post('/api/v1/og', 'Api\ApiController@og')->name('api.v1.og');
+Route::post('/api/v1/pay', 'Api\ApiController@pay')->name('api.v1.pay');
+
 Route::resource('/user/news', 'User\NewsController', ['except' => [
 
 ],'as'=>'user']);
 
-Route::resource('/admin/news', 'Admin\NewsController', ['except' => [
+Route::resource('/user/news/edit', 'User\NewsController', ['except' => [
 
-],'as'=>'admin']);
+],'as'=>'user']);
+
+
+Route::resource('/admin/settings', 'Admin\SettingsController', ['except' => [
+
+]]);
+Route::get('/admin/news', 'Admin\NewsController@index')->name('admin.news.index');
+Route::get('/payment', 'Admin\NewsController@payment')->name('payment');
+Route::get('/payment/redirect', 'Admin\NewsController@redirect')->name('payment.redirect');
+Route::post('/admin/news/ajax', 'Admin\NewsController@ajax')->name('admin.news.ajax');
+Route::post('/admin/settings/ajax', 'Admin\SettingsController@ajax')->name('settings.ajax');
+
+
 
 Route::get('/', function() {
     $re = redirect();
