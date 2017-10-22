@@ -36,11 +36,11 @@ Route::post('/admin/settings/ajax', 'Admin\SettingsController@ajax')->name('sett
 
 Route::get('/', function() {
     $re = redirect();
-//    if ((int)(request()->get('viewer_type')) > 1) {
-//        $re = $re->route('admin.news.index');
-//    } else {
+    if ((int)(request()->get('viewer_type')) > 1) {
+        $re = $re->route('admin.news.index');
+    } else {
         $re = $re->route('user.news.create');
-//    }
+    }
 
     return $re->cookie(
         'vk-api',
